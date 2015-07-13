@@ -30,7 +30,9 @@ public class TodoListActivity extends ActionBarActivity implements NewItemFragme
         ToDoListFragment toDoListFragment = (ToDoListFragment)fm.findFragmentById(R.id.ToDoListFragment);
 
         todoItems = new ArrayList<String>();
-        aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, todoItems);
+
+        int resID = R.layout.todolist_item;
+        aa = new ArrayAdapter<String>(this, resID, todoItems);
 
         toDoListFragment.setListAdapter(aa);
     }
