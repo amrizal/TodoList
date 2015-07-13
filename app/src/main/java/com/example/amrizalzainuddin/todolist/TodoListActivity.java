@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
 public class TodoListActivity extends ActionBarActivity implements NewItemFragment.OnNewItemAddedListener {
 
-    private ArrayAdapter<String> aa;
-    private ArrayList<String> todoItems;
+    private ToDoItemAdapter aa;
+    private ArrayList<ToDoItem> todoItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +29,17 @@ public class TodoListActivity extends ActionBarActivity implements NewItemFragme
         FragmentManager fm = getFragmentManager();
         ToDoListFragment toDoListFragment = (ToDoListFragment)fm.findFragmentById(R.id.ToDoListFragment);
 
-        todoItems = new ArrayList<String>();
+        todoItems = new ArrayList<ToDoItem>();
 
         int resID = R.layout.todolist_item;
-        aa = new ArrayAdapter<String>(this, resID, todoItems);
+        aa = new ToDoItemAdapter(this, resID, todoItems);
 
         toDoListFragment.setListAdapter(aa);
     }
 
     public  void onNewItemAdded(String newItem){
-        todoItems.add(newItem);
+        ToDoItem newToDoItem = new ToDoItem(newItem);
+        todoItems.add(0, newToDoItem);
         aa.notifyDataSetChanged();
     }
 
