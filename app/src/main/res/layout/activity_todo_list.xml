@@ -2,14 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <EditText
+    <fragment android:name="com.example.amrizalzainuddin.todolist.NewItemFragment"
+        android:id="@+id/NewItemFragement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/myEditText"
-        android:hint="@string/addItemHint"
-        android:contentDescription="@string/addItemContentDescription"/>
-    <ListView
+        />
+    <fragment
+        android:id="@+id/ToDoListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/myListView"></ListView>
+        android:name="com.example.amrizalzainuddin.todolist.ToDoListFragment"
+        />
 </LinearLayout>
